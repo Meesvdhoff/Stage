@@ -16,7 +16,7 @@
      $hashedPwdInDb = password_hash("test123", PASSWORD_DEFAULT);
 
      echo password_verify($input, $hashedPwdInDb);
-?>
+    ?>
 </div>
 </body>
 </html>

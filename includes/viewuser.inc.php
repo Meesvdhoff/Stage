@@ -1,15 +1,19 @@
 <?php
+include_once "users.inc.php";
+
 
 class ViewUser extends User
 {
 
     public function showAllUsers(){
         $datas = $this->getAllUsers();
+        
         foreach ($datas as $data)
         {
-          echo $data['klantid'];"<br>"
-          echo $data['username'];"<br>"
-          echo $data['password'];"<br>"
+            echo $data['klantid'];
+            echo $data['username'];
+            echo $data['password'];
         }
 
+}
 }

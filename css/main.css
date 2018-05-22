@@ -1,32 +1,33 @@
-body.login-page {background:url('../images/wallpaper.jpg')
+body.login-page 
+{
+background:url('../images/wallpaper.jpg')
 no-repeat;
 background-position: center;
 }
+
 body.home-page
 {
   background:url('../images/backgroundsite.jpg')
   no-repeat;
   background-position: center;
 }
-body.contact-page {background:url('../images/wallpaper.jpg')
+
+body.contact-page 
+{
+background:url('../images/wallpaper.jpg')
 no-repeat;
 background-position: center;
 }
+
   /* container aanpassingen */
 .container
 {
   background-color: #E77E24;
-  opacity: .75;
   margin-top: 100px;
   height: 450px;
-  width:900px;
-  z-index:2;
-}
-
-.content
-{
-    z-index:1;
-    opacity: 1;
+  width: 900px;
+  opacity: 0.7;
+  
 }
 
 .col-md-6

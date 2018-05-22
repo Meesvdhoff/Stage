@@ -1,7 +1,7 @@
 <?php
     dirname('includes/dbh.inc.php');
     dirname('includes/users.inc.php');
-    dirname('includes/ViewUser.inc.php');
+    include_once "includes/viewuser.inc.php";
  ?>
 
 <!DOCTYPE html>
