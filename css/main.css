@@ -1,11 +1,16 @@
 body.login-page {background:url('../images/wallpaper.jpg')
 no-repeat;
+background-position: center;
 }
-body.home-page {background:url('../images/wallpaper.jpg')
-no-repeat;
+body.home-page
+{
+  background:url('../images/backgroundsite.jpg')
+  no-repeat;
+  background-position: center;
 }
 body.contact-page {background:url('../images/wallpaper.jpg')
 no-repeat;
+background-position: center;
 }
   /* container aanpassingen */
 .container
@@ -15,6 +20,13 @@ no-repeat;
   margin-top: 100px;
   height: 450px;
   width:900px;
+  z-index:2;
+}
+
+.content
+{
+    z-index:1;
+    opacity: 1;
 }
 
 .col-md-6

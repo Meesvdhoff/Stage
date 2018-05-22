@@ -1,5 +1,5 @@
 <?php
-include('dbconnect.php');
+dirname('dbconnect.php');
       $msgpass = "";
       getconnection();
       echo $conn();

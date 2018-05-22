@@ -18,11 +18,6 @@
   <span class="border border-primary"></span>
   <div class="container" style="margin-top: 100px; height: 450px; width:900px;">
 
-    <?php
-        $users = new ViewUser();
-        $users->showAllUsers();
-     ?>
-
 </div>
 </body>
 </html>

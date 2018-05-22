@@ -1,19 +1,20 @@
 <?php
-Class dbh{
+class Dbh
+{
 
-  private $host;
-  private $user;
-  private $pass;
+  private $servername;
+  private $username;
+  private $password;
   private $dbname;
 
-    protected function connect(){
-
-      $this->host = "localhost";
-      $this->user = "root";
-      $this->pass = "";
+    protected function connect()
+    {
+      $this->servername = "localhost";
+      $this->username = "root";
+      $this->password = "";
       $this->dbname = "adwordsviewapp";
 
-        $conn = new mysqli($this->host,$this->user ,$this->pass , $this->adwordsviewapp) or die("Couldn't connect to server");
+        $conn = new mysqli($this->servername,$this->username ,$this->password , $this->dbname) or die("Couldn't connect to server");
 
         return $conn;
     }
