@@ -22,10 +22,10 @@
           <input  class="form-control" minlenght="3" name="username" type="username" placeholder="Name"> <br>
           <input  class="form-control" minlenght="5" name="password" type="password" placeholder="Password"> <br>
           <input  class="btn btn-success" name="Login" type="submit" value="Login"> <br><br>
-          <a href="contact.php">
-   <input type="button" class="btn btn-primary" value="Request account" />
-</a>
         </form>
+        <a href="contact.php">
+ <input type="button" class="btn btn-primary" value="Request account" />
+</a>
       </div>
 
 </div>

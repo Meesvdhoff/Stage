@@ -1,8 +1,7 @@
 <?php
 
-class User extends Dbh {
-
-
+class User extends Dbh
+{
     protected function getAllUsers()
     {
       $sql = "SELECT * FROM users";
@@ -20,4 +19,3 @@ class User extends Dbh {
       }
     }
 }
-?>

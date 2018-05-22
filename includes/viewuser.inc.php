@@ -13,4 +13,3 @@ class ViewUser extends User
         }
 
 }
-?>
