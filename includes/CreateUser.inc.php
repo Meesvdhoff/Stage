@@ -1,22 +1,21 @@
 <?php
 include_once "users.inc.php";
 
+$signup = new Signup();
+$signup->CreateUser();
+
   class Signup extends User
   {
-
-
     public function CreateUser()
     {
         if (isset($_POST['submit']))
         {
-
           $first = mysqli_real_escape_string($conn, $_POST['first']);
           $last = mysqli_real_escape_string($conn, $_POST['last']);
           $email = mysqli_real_escape_string($conn, $_POST['email']);
           $klantid = mysqli_real_escape_string($conn, $_POST['klantid']);
           $uid = mysqli_real_escape_string($conn, $_POST['uid']);
           $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
-
 
           /* Fouten opvangen met Error Handlers*/
           //check of er lege velden zijn.
@@ -69,5 +68,4 @@ include_once "users.inc.php";
 
         }
     }
-
 }
