@@ -28,8 +28,10 @@ include_once "users.inc.php";
           else
           {
             //check of de Characters kloppen
-            if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last) ) {
+            if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last) )
+            {
               echo "Please check your name";
+              exit();
             }
             else
             {
@@ -37,10 +39,11 @@ include_once "users.inc.php";
               if (!filter_var($email, FILTER_VALIDATE_EMAIL))
               {
                 echo "wrong email";
+                exit();
               }
               else
               {
-                $sql = "SELECT * FROM users WHERE user_uid='uid'";
+                $sql = "SELECT * FROM users WHERE username='$uid'";
                 $result = mysqli_query($conn, $sql);
                 $resulCheck = mysqli_num_rows($result);
 
@@ -54,7 +57,7 @@ include_once "users.inc.php";
                   //Hier hash ik het wachtwoord
                   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
                   //voeg de user in de database
-                  $sql = "INSERT INTO users (first, last, email, klantid, username, password) VALUES ('$first','$last','$email','$uid','$hashedPwd');";
+                  $sql = "INSERT INTO users (first, last, email, klantid, username, password) VALUES ('$first','$last','$email','$uid','$hashedPwd')";
                   mysqli_query($conn, $sql);
 
                   echo "User has been created";

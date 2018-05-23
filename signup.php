@@ -16,12 +16,12 @@ include_once "includes/CreateUser.inc.php";
   <div class="container">
     <h1>  Signup Form </h1>
     <form class="signup-form" action="includes/CreateUser.inc.php" method="POST">
-      <input type="text" name="first" placeholder="First"><br>
-      <input type="text" name="last" placeholder="Last"><br>
-      <input type="text" name="email" placeholder="E-mail"><br>
-      <input type="text" name="uid" placeholder="Username"><br>
-      <input type="password" name="pwd" placeholder="Password"><br>
-      <button type="submit" name="submit">Signup</button>
+      <input type="text" name="first" placeholder="First"/><br>
+      <input type="text" name="last" placeholder="Last"/><br>
+      <input type="text" name="email" placeholder="E-mail"/><br>
+      <input type="text" name="uid" placeholder="Username"/><br>
+      <input type="password" name="pwd" placeholder="Password"/><br>
+      <button type="submit" name="submit"/>Sign up</button><br>
     </form>
 </div>
 </body>
