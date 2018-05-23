@@ -25,7 +25,7 @@
             <input type="button" class="btn btn-primary" value="Request account" />
             </a>
       </div>
-    </div>  
+    </div>
   </div>
 </body>
 </html>

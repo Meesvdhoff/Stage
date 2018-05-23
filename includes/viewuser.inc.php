@@ -5,9 +5,10 @@ include_once "users.inc.php";
 class ViewUser extends User
 {
 
-    public function showAllUsers(){
-        $datas = $this->getAllUsers();
-        
+    public function showAllUsers()
+    {
+    $datas = $this->getAllUsers();
+
         foreach ($datas as $data)
         {
             echo $data['klantid'];
@@ -15,5 +16,5 @@ class ViewUser extends User
             echo $data['password'];
         }
 
-}
-}
+     }
+  }
