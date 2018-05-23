@@ -1,12 +1,5 @@
 <?php
-include_once "users.inc.php";
 
-  class Signup extends User
-  {
-
-
-    public function CreateUser()
-    {
         if (isset($_POST['submit']))
         {
 
@@ -66,8 +59,4 @@ include_once "users.inc.php";
               }
             }
           }
-
         }
-    }
-
-}
