@@ -1,7 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-=======
+include_once "users.inc.php";
 $signup = new Signup();
 $signup->CreateUser();
 
@@ -9,7 +8,6 @@ $signup->CreateUser();
   {
     public function CreateUser()
     {
->>>>>>> 6cf6ef732442c4325d6a036a323c63543070dfc1
         if (isset($_POST['submit']))
         {
           $first = mysqli_real_escape_string($conn, $_POST['first']);
@@ -18,7 +16,6 @@ $signup->CreateUser();
           $klantid = mysqli_real_escape_string($conn, $_POST['klantid']);
           $uid = mysqli_real_escape_string($conn, $_POST['uid']);
           $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
-
           /* Fouten opvangen met Error Handlers*/
           //check of er lege velden zijn.
           if (empty($first)  || empty($last) || empty($email) || empty($klantid) || empty($uid) || empty($pwd))
@@ -47,7 +44,6 @@ $signup->CreateUser();
                 $sql = "SELECT * FROM users WHERE username='$uid'";
                 $result = mysqli_query($conn, $sql);
                 $resulCheck = mysqli_num_rows($result);
-
                 if ($resultCheck > 0)
                 {
                   echo "User already taken";
@@ -60,7 +56,6 @@ $signup->CreateUser();
                   //voeg de user in de database
                   $sql = "INSERT INTO users (first, last, email, klantid, username, password) VALUES ('$first','$last','$email','$uid','$hashedPwd')";
                   mysqli_query($conn, $sql);
-
                   echo "User has been created";
                   exit();
                 }
@@ -68,8 +63,5 @@ $signup->CreateUser();
             }
           }
         }
-<<<<<<< HEAD
-=======
     }
 }
->>>>>>> 6cf6ef732442c4325d6a036a323c63543070dfc1
