@@ -1,15 +1,23 @@
 <?php
 
+<<<<<<< HEAD
+=======
+$signup = new Signup();
+$signup->CreateUser();
+
+  class Signup extends User
+  {
+    public function CreateUser()
+    {
+>>>>>>> 6cf6ef732442c4325d6a036a323c63543070dfc1
         if (isset($_POST['submit']))
         {
-
           $first = mysqli_real_escape_string($conn, $_POST['first']);
           $last = mysqli_real_escape_string($conn, $_POST['last']);
           $email = mysqli_real_escape_string($conn, $_POST['email']);
           $klantid = mysqli_real_escape_string($conn, $_POST['klantid']);
           $uid = mysqli_real_escape_string($conn, $_POST['uid']);
           $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
-
 
           /* Fouten opvangen met Error Handlers*/
           //check of er lege velden zijn.
@@ -60,3 +68,8 @@
             }
           }
         }
+<<<<<<< HEAD
+=======
+    }
+}
+>>>>>>> 6cf6ef732442c4325d6a036a323c63543070dfc1
