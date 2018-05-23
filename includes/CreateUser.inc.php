@@ -1,8 +1,9 @@
 <?php
-
 include_once "users.inc.php";
 $signup = new Signup();
 $signup->CreateUser();
+
+
 
   class Signup extends User
   {
