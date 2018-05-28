@@ -1,8 +1,5 @@
 <?php
-include_once "users.inc.php";
-$signup = new Signup();
-$signup->CreateUser();
-
+    include_once "users.inc.php";
 
 
   class Signup extends User
@@ -11,12 +8,22 @@ $signup->CreateUser();
     {
         if (isset($_POST['submit']))
         {
+          include_once 'dbh.inc.php';
+
           $first = mysqli_real_escape_string($conn, $_POST['first']);
           $last = mysqli_real_escape_string($conn, $_POST['last']);
           $email = mysqli_real_escape_string($conn, $_POST['email']);
-          $klantid = mysqli_real_escape_string($conn, $_POST['klantid']);
+          $klantid = mysqli_real_escape_string($conn, $_POST['kid']);
           $uid = mysqli_real_escape_string($conn, $_POST['uid']);
           $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
+        }
+        else
+        {
+          header("Location: ../signup.php");
+          exit();
+        }
+
+
           /* Fouten opvangen met Error Handlers*/
           //check of er lege velden zijn.
           if (empty($first)  || empty($last) || empty($email) || empty($klantid) || empty($uid) || empty($pwd))
@@ -55,7 +62,7 @@ $signup->CreateUser();
                   //Hier hash ik het wachtwoord
                   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
                   //voeg de user in de database
-                  $sql = "INSERT INTO users (first, last, email, klantid, username, password) VALUES ('$first','$last','$email','$uid','$hashedPwd')";
+                  $sql = "INSERT INTO users (first, last, email, klantid, username, password) VALUES ('$first','$last','$email','$kid','$uid','$hashedPwd')";
                   mysqli_query($conn, $sql);
                   echo "User has been created";
                   exit();
@@ -65,4 +72,4 @@ $signup->CreateUser();
           }
         }
     }
-}
+
