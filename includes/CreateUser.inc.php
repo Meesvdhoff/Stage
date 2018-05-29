@@ -1,34 +1,25 @@
 <?php
-    include_once "users.inc.php";
+    include_once 'dbh.inc.php';
 
-
-  class Signup extends User
+  class Signup extends Dbh
   {
-    public function CreateUser()
+    public function CreateUser($data)
     {
-        if (isset($_POST['submit']))
-        {
-          include_once 'dbh.inc.php';
 
-          $first = mysqli_real_escape_string($conn, $_POST['first']);
-          $last = mysqli_real_escape_string($conn, $_POST['last']);
-          $email = mysqli_real_escape_string($conn, $_POST['email']);
-          $klantid = mysqli_real_escape_string($conn, $_POST['kid']);
-          $uid = mysqli_real_escape_string($conn, $_POST['uid']);
-          $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
-        }
-        else
-        {
-          header("Location: ../signup.php");
-          exit();
-        }
+      $conn = $this->connect();
 
-
+          $first = mysqli_real_escape_string($conn, $data['first']);
+          $last = mysqli_real_escape_string($conn, $data['last']);
+          $email = mysqli_real_escape_string($conn, $data['email']);
+          $kid = mysqli_real_escape_string($conn, $data['kid']);
+          $uid = mysqli_real_escape_string($conn, $data['uid']);
+          $pwd = mysqli_real_escape_string($conn, $data['pwd']);
+        
           /* Fouten opvangen met Error Handlers*/
           //check of er lege velden zijn.
-          if (empty($first)  || empty($last) || empty($email) || empty($klantid) || empty($uid) || empty($pwd))
+          if (empty($first) || empty($last) || empty($email) || empty($klantid) || empty($uid) || empty($pwd))
           {
-            echo "Vul alle gegevens in!";
+            return "Insert data!";
             exit();
           }
           else
@@ -36,7 +27,7 @@
             //check of de Characters kloppen
             if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last) )
             {
-              echo "Please check your name";
+              return "Please check your name";
               exit();
             }
             else
@@ -44,28 +35,29 @@
               //Check of de email klopt
               if (!filter_var($email, FILTER_VALIDATE_EMAIL))
               {
-                echo "wrong email";
+                return "wrong email";
                 exit();
               }
+              //als alles klopt check of er al zo'n gebruiker bestaat
               else
               {
-                $sql = "SELECT * FROM users WHERE username='$uid'";
+                $sql = "SELECT * FROM users WHERE klantid='$kid'";
                 $result = mysqli_query($conn, $sql);
-                $resulCheck = mysqli_num_rows($result);
+                $resultCheck = mysqli_num_rows($result);
                 if ($resultCheck > 0)
                 {
-                  echo "User already taken";
-                  exit();
+                  return "User already taken";
                 }
                 else
                 {
-                  //Hier hash ik het wachtwoord
+                  echo "test";
+                  //hash het wachtwoord
                   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
                   //voeg de user in de database
                   $sql = "INSERT INTO users (first, last, email, klantid, username, password) VALUES ('$first','$last','$email','$kid','$uid','$hashedPwd')";
                   mysqli_query($conn, $sql);
-                  echo "User has been created";
-                  exit();
+                
+                  return "User has been created";
                 }
               }
             }

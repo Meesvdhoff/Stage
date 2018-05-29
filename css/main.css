@@ -209,7 +209,11 @@ header .nav-login a
 
 .main-wrapper
 {
-  padding-top: 40px;
+  padding-top: 10px; 
+}
+
+.signup
+{
   
 }
 
